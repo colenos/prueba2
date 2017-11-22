@@ -74,15 +74,18 @@ public class ArbolBinario {
     int random = (int) ( Math.random() * 2 + 1);
     Partido ganador = null;
         if (p1.getEquipo().getIdJugador()==random) {
-            System.out.println("Ganador Equipo 1");
+            System.out.println("Ganador Equipo 1, Nombre Equipo 1 = "+p1.getEquipo().getNombreEquipo()
+            + " Nombre Jugador = " +p1.getEquipo().getJugador().getNombre());
             ganador = p1;
         }else{
-            System.out.println("Ganador Equipo 2");
+            System.out.println("Ganador Equipo 2, Nombre Equipo 2 = "+p2.getEquipo().getNombreEquipo()
+            + " Nombre Jugador = " +p2.getEquipo().getJugador().getNombre());
             ganador=p2;
         }
         return ganador;
         
     }
+    
     
     
      
