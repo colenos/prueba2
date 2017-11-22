@@ -5,6 +5,8 @@
  */
 package Arbol;
 
+import Campeonato.Partido;
+
 
 
 /**
@@ -13,7 +15,42 @@ package Arbol;
  */
 public class ArbolBinario {
     NodoArbol raiz;
+
+    public NodoArbol getRaiz() {
+        return raiz;
+    }
+
+    public void setRaiz(NodoArbol raiz) {
+        this.raiz = raiz;
+    }
     
+    public void agregarNodo(Partido partido, int id){
+        NodoArbol nuevo = new  NodoArbol(partido,id);
+        if (raiz==null) {
+            raiz = null;
+        }else{
+            NodoArbol auxiliar = raiz;
+            NodoArbol padre;
+            while(true){ 
+                padre=auxiliar;
+                int random = (int) ( Math.random() * 2 + 1);
+                if (id==random) {
+                    auxiliar=auxiliar.getHijoIzquierdo();
+                    if (auxiliar==null) {
+                        padre.setHijoIzquierdo(nuevo);
+                        return;
+                    }
+            } else{
+                    auxiliar=auxiliar.getHijoDerecho();
+                    if (auxiliar==null) {
+                        padre.setHijoDerecho(nuevo);
+                        return;
+                    }
+                }  
+            }
+            
+        }
+    }
     
     public ArbolBinario(){
         raiz = null;

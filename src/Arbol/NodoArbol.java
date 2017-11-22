@@ -12,16 +12,16 @@ import Campeonato.Partido;
  * @author Yi
  */
 public class NodoArbol {
-    
+    private int id;
     private Partido partido;
     private NodoArbol hijoIzquierdo;
     private NodoArbol hijoDerecho;
     
     
     
-    public NodoArbol(Partido play){
-        
-        this.partido=play;
+    public NodoArbol(Partido partido,int id){
+        this.id = id;
+        this.partido=partido;
         this.hijoIzquierdo = null;
         this.hijoDerecho = null;
     }
@@ -33,6 +33,14 @@ public class NodoArbol {
 
     public Partido getPartido() {
         return partido;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public void setPartido(Partido partido) {

@@ -26,6 +26,7 @@ public class JuegoPingPong {
         int opcion = 0;
         int valor=0;
         Partido p=null;
+        NodoArbol nodoAux = null ;
         ArbolBinario objArbol = new ArbolBinario();
         String nombreEquipo,nombreJugadorA,nombreJugadorB;
         do{
@@ -57,10 +58,14 @@ public class JuegoPingPong {
                                 ,JOptionPane.QUESTION_MESSAGE));
                             if (valor==1) {
                             p = new Partido(new Equipo(nombreEquipo, new Jugador(nombreJugadorA), 1));
+                                objArbol.agregarNodo(p, 1);
+                                        
                             }else{
                             p = new Partido(new Equipo(nombreEquipo, new Jugador(nombreJugadorB), 2)); 
+                             objArbol.agregarNodo(p, 2);
                             }
-                            System.out.println(p.toString());
+                            //System.out.println(p.toString());
+                            
                             
                         break;
                     case 2:
@@ -75,6 +80,15 @@ public class JuegoPingPong {
         }while(opcion !=2);
         
     
+        
+    }
+    public void jugar(NodoArbol nodo, int valor){
+        int random = (int) ( Math.random() * 2 + 1);
+        if (valor==random) {
+            
+        }
+        
+        
         
     }
     
