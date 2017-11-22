@@ -70,10 +70,20 @@ public class ArbolBinario {
         return raiz==null ;
     }
     
-    public void jugar(){
-    
-        
+    public Partido jugar(Partido p1,Partido p2){
+    int random = (int) ( Math.random() * 2 + 1);
+    Partido ganador = null;
+        if (p1.getEquipo().getIdJugador()==random) {
+            System.out.println("Ganador Equipo 1");
+            ganador = p1;
+        }else{
+            System.out.println("Ganador Equipo 2");
+            ganador=p2;
+        }
+        return ganador;
         
     }
+    
+    
      
 }

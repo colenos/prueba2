@@ -27,6 +27,7 @@ public class JuegoPingPong {
         int valor=0;
         Partido p1=null;
         Partido p2=null;
+        
         //NodoArbol nodoAux = null ;
         ArbolBinario objArbol = new ArbolBinario();
         String nombreEquipo,nombreJugadorA,nombreJugadorB;
@@ -62,18 +63,20 @@ public class JuegoPingPong {
                             p1 = new Partido(new Equipo(nombreEquipo, new Jugador(nombreJugadorA), 1));
                             
                             objArbol.agregarNodo(new NodoArbol(p1.getEquipo().getIdJugador(), p1), new NodoArbol(p1.getEquipo().getIdJugador(), p1));
-                                 System.out.println(p1.toString());       
+                                 //System.out.println(p1.toString());       
                             }else{
                             p2 = new Partido(new Equipo(nombreEquipo, new Jugador(nombreJugadorB), 2)); 
                              objArbol.agregarNodo(new NodoArbol(p2.getEquipo().getIdJugador(), p2), new NodoArbol(p2.getEquipo().getIdJugador(), p2));
-                            System.out.println(p2.toString());
+                            //System.out.println(p2.toString());
                             }
-                            
+                            objArbol.preorden();
+                            objArbol.jugar(p1, p2);
                             
                             
                             
                         break;
                     case 2:
+                        
                         if (!objArbol.estaVacio()) {
                             objArbol.preorden(objArbol.getRaiz());
                         }else{
@@ -94,14 +97,6 @@ public class JuegoPingPong {
     
         
     }
-    public void jugar(NodoArbol nodo, int valor){
-        int random = (int) ( Math.random() * 2 + 1);
-        if (valor==random) {
-            
-        }
-        
-        
-        
-    }
+    
     
 }
