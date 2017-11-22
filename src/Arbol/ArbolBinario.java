@@ -59,7 +59,7 @@ public class ArbolBinario {
     {
         preorden(this.raiz);
     }
-    private void preorden(NodoArbol n)
+    public void preorden(NodoArbol n)
     {
         if (n != null)
         {
@@ -67,6 +67,9 @@ public class ArbolBinario {
             preorden(n.getHijoIzquierdo());
             preorden(n.getHijoDerecho());
         }
+    }
+    public boolean estaVacio(){
+        return raiz==null ;
     }
     
     

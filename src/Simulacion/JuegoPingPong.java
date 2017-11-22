@@ -32,8 +32,9 @@ public class JuegoPingPong {
         do{
             try{
                 opcion = Integer.parseInt(JOptionPane.showInputDialog(null
-                        ,"1. Agregar Equipo\n" 
-                            +"2. Salir\n"
+                        ,"1. Agregar Equipo\n"
+                            +"2.Jugar\n"
+                            +"3. Salir\n"
                             +"Ingrese una Opcion -->"
                         ,"Juego Ping Pong"
                         ,JOptionPane.QUESTION_MESSAGE));
@@ -69,6 +70,13 @@ public class JuegoPingPong {
                             
                         break;
                     case 2:
+                        if (!objArbol.estaVacio()) {
+                            objArbol.preorden(objArbol.getRaiz());
+                        }else{
+                            JOptionPane.showMessageDialog(null,"Arbol Vacio","Atencion",JOptionPane.INFORMATION_MESSAGE);
+                        }
+                        break;
+                    case 3:
                         JOptionPane.showMessageDialog(null,"Finalizando Juego");
                         break;
                 }
@@ -77,7 +85,7 @@ public class JuegoPingPong {
                 JOptionPane.showMessageDialog(null, "Error "+ n.getMessage() );
                 
             }
-        }while(opcion !=2);
+        }while(opcion !=3);
         
     
         
