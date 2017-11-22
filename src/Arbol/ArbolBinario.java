@@ -23,13 +23,19 @@ public class ArbolBinario {
     public void setRaiz(NodoArbol raiz) {
         this.raiz = raiz;
     }
+    public NodoArbol agregarRaiz(NodoArbol nodo){
+        if (raiz==null) {
+            this.setRaiz(nodo);
+        }
+        return nodo;
+    }
     
     public void agregarNodo(NodoArbol nodo,NodoArbol raiz){
         NodoArbol nuevo = new  NodoArbol(nodo.getId(),nodo.getPartido());
         if (raiz==null) {
             this.setRaiz(nuevo);
         }else{
-            if (nodo.getId()<=raiz.getId()) {
+            if (nodo.getId()<raiz.getId()) {
                 if (raiz.getHijoIzquierdo()==null) {
                     raiz.setHijoIzquierdo(nuevo);
                 }else{
@@ -71,7 +77,7 @@ public class ArbolBinario {
     }
     
     public Partido jugar(Partido p1,Partido p2){
-    int random = (int) ( Math.random() * 2 + 1);
+    int random = (int) Math.floor(Math.random()*2+1);
     Partido ganador = null;
         if (p1.getEquipo().getIdJugador()==random) {
             System.out.println("Ganador Equipo 1, Nombre Equipo 1 = "+p1.getEquipo().getNombreEquipo()
@@ -85,8 +91,11 @@ public class ArbolBinario {
         return ganador;
         
     }
-    
+        public String ganador(Partido p){
+            return p.getEquipo().getNombreEquipo();
+        }
+    }
     
     
      
-}
+

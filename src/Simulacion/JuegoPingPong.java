@@ -27,9 +27,7 @@ public class JuegoPingPong {
         int valor=0;
         Partido p1=null;
         Partido p2=null;
-        Partido p3=null;
-        Partido p4=null;
-        
+       
         //NodoArbol nodoAux = null ;
         ArbolBinario objArbol = new ArbolBinario();
         String nombreEquipoA,nombreEquipoB,nombreJugadorA,nombreJugadorB;
@@ -37,8 +35,8 @@ public class JuegoPingPong {
             try{
                 opcion = Integer.parseInt(JOptionPane.showInputDialog(null
                         ,"1. Agregar Equipo y Jugar\n"
-                            
-                            +"2. Salir\n"
+                            +"2. Ver Ganador\n"
+                            +"3. Salir\n"
                             +"Ingrese una Opcion -->"
                         ,"Juego Ping Pong"
                         ,JOptionPane.QUESTION_MESSAGE));
@@ -67,9 +65,9 @@ public class JuegoPingPong {
                             objArbol.agregarNodo(new NodoArbol(p1.getEquipo().getIdJugador(), p1), new NodoArbol(p1.getEquipo().getIdJugador(), p1));
                                  System.out.println(p1.toString());       
                             }else{
-                            p2 = new Partido(new Equipo(nombreEquipoA, new Jugador(nombreJugadorB), 2)); 
-                             objArbol.agregarNodo(new NodoArbol(p2.getEquipo().getIdJugador(), p2), new NodoArbol(p2.getEquipo().getIdJugador(), p2));
-                            System.out.println(p2.toString());
+                            p1 = new Partido(new Equipo(nombreEquipoA, new Jugador(nombreJugadorB), 2)); 
+                             objArbol.agregarNodo(new NodoArbol(p1.getEquipo().getIdJugador(), p1), new NodoArbol(p1.getEquipo().getIdJugador(), p1));
+                            System.out.println(p1.toString());
                             }
                             nombreEquipoB= JOptionPane.showInputDialog(null,
                                     "Ingrese nombre Equipo 2.."
@@ -88,30 +86,39 @@ public class JuegoPingPong {
                                 ,"Eligiendo Jugador"
                                 ,JOptionPane.QUESTION_MESSAGE));
                             if (valor==1) {
-                            p3 = new Partido(new Equipo(nombreEquipoB, new Jugador(nombreJugadorA), 1));
+                            p2 = new Partido(new Equipo(nombreEquipoB, new Jugador(nombreJugadorA), 1));
                             
-                            objArbol.agregarNodo(new NodoArbol(p1.getEquipo().getIdJugador(), p1), new NodoArbol(p1.getEquipo().getIdJugador(), p1));
-                             System.out.println("Nodo Agregado");     
-                            System.out.println(p1.toString());       
+                            objArbol.agregarNodo(new NodoArbol(p2.getEquipo().getIdJugador(), p2), new NodoArbol(p2.getEquipo().getIdJugador(), p2));
+                                  
+                            System.out.println(p2.toString());       
                             }else{
-                            p4 = new Partido(new Equipo(nombreEquipoB, new Jugador(nombreJugadorB), 2)); 
+                            p2 = new Partido(new Equipo(nombreEquipoB, new Jugador(nombreJugadorB), 2)); 
                              objArbol.agregarNodo(new NodoArbol(p2.getEquipo().getIdJugador(), p2), new NodoArbol(p2.getEquipo().getIdJugador(), p2));
-                                System.out.println("Nodo Agregado");
+                               
                              System.out.println(p2.toString());
                             }
-                            objArbol.preorden();
+                           
+                            
                             System.out.println("Partido 1");
-                            System.out.println("Ganador");
+                            
                             objArbol.jugar(p1, p2);
+                            
                             System.out.println("Partido 2");
-                            System.out.println("Ganador");
-                            objArbol.jugar(p3, p4);
+                           
+                            objArbol.jugar(p1, p2);
                             
                             
                             
                         break;
                     
                     case 2:
+                        System.out.println("Ganador Campeonato Ping Pong");
+                                                
+                        objArbol.agregarRaiz(new NodoArbol(p2.getEquipo().getIdJugador(), p2));
+                        objArbol.getRaiz();
+                        System.out.println(p2.getEquipo().getNombreEquipo());
+                        break;
+                    case 3:
                         JOptionPane.showMessageDialog(null,"Finalizando Juego");
                         break;
                 }
@@ -120,7 +127,7 @@ public class JuegoPingPong {
                 JOptionPane.showMessageDialog(null, "Error "+ n.getMessage() );
                 
             }
-        }while(opcion !=2);
+        }while(opcion !=3);
         
     
         
