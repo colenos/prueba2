@@ -19,7 +19,7 @@ public class NodoArbol {
     
     
     
-    public NodoArbol(Partido partido,int id){
+    public NodoArbol(int id,Partido partido){
         this.id = id;
         this.partido=partido;
         this.hijoIzquierdo = null;

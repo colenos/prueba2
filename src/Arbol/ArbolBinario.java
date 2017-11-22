@@ -24,33 +24,31 @@ public class ArbolBinario {
         this.raiz = raiz;
     }
     
-    public void agregarNodo(Partido partido, int id){
-        NodoArbol nuevo = new  NodoArbol(partido,id);
+    public void agregarNodo(NodoArbol nodo,NodoArbol raiz){
+        NodoArbol nuevo = new  NodoArbol(nodo.getId(),nodo.getPartido());
         if (raiz==null) {
-            raiz = null;
+            this.setRaiz(nuevo);
         }else{
-            NodoArbol auxiliar = raiz;
-            NodoArbol padre;
-            while(true){ 
-                padre=auxiliar;
-                int random = (int) ( Math.random() * 2 + 1);
-                if (id==random) {
-                    auxiliar=auxiliar.getHijoIzquierdo();
-                    if (auxiliar==null) {
-                        padre.setHijoIzquierdo(nuevo);
-                        return;
-                    }
-            } else{
-                    auxiliar=auxiliar.getHijoDerecho();
-                    if (auxiliar==null) {
-                        padre.setHijoDerecho(nuevo);
-                        return;
-                    }
-                }  
+            if (nodo.getId()<=raiz.getId()) {
+                if (raiz.getHijoIzquierdo()==null) {
+                    raiz.setHijoIzquierdo(nuevo);
+                }else{
+                    agregarNodo(nodo, raiz.getHijoIzquierdo());
+                }
+            }else{
+                if (raiz.getHijoDerecho()==null) {
+                    raiz.setHijoDerecho(nuevo);
+                }else{
+                    agregarNodo(nuevo, raiz.getHijoDerecho());
+                }
+                
+            }
+                
+            
             }
             
-        }
     }
+    
     
     public ArbolBinario(){
         raiz = null;
@@ -72,6 +70,10 @@ public class ArbolBinario {
         return raiz==null ;
     }
     
+    public void jugar(){
     
+        
+        
+    }
      
 }
